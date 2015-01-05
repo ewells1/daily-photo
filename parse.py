@@ -11,7 +11,7 @@ def handleRow(str):
     for word in wordList:
         if word[0].isupper():
             #print word
-            phrases[numPhrases] = phrases[numPhrases] + word.rstrip('.') + " "
+            phrases[numPhrases] = phrases[numPhrases] + word.rstrip('.').rstrip(',') + " "
         else:
             phrases.append("");
             numPhrases = numPhrases +1

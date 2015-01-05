@@ -1,5 +1,8 @@
+#!/usr/bin/python
+
 import requests
 import bs4
+import csv
 
 captions = []
 
@@ -9,6 +12,8 @@ def main():
     #caption = soup.select(".caption")[1].p
     caption = soup.find('p').contents[0]
     print (caption) # debug
+    csvfile = open('captions.csv', 'wb')
+    writer = csv.writer(csvfile)
 
     while caption not in captions:
         captions.append(caption)
@@ -19,5 +24,6 @@ def main():
         #caption = soup.select(".caption")[1].p
         caption = soup.find('p').contents[0]
         print (caption) # debug
+        writer.writerow( (caption.encode('utf-8'), nextLink) )
 
 main()
