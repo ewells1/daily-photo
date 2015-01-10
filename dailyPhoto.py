@@ -18,7 +18,7 @@ def main():
     writer = csv.writer(csvfile)
 
     while nextLink not in links:
-        captions.append(caption)
+        #captions.append(caption)
         links.append(nextLink)
         nextLink = soup.select('a[href^="http://www.binghamton.edu/photos/index.php/gallery/archives/"]')[0].attrs.get('href')
         print (nextLink) # debug
